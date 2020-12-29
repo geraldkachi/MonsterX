@@ -2,11 +2,12 @@ import React from 'react'
 import axios from "axios";
 import CardList from '../cardlist/CardList'
 import SearchBox from '../searchbox/SearchBox'
+import '../../App.css'
 
 const MonstersX = () => {
 
     const [monsters, setMonsters] = React.useState([])
-    const [searchField, setSeachField] = React.useState('')
+    const [search, setSearchField] = React.useState('')
     
     React.useEffect(() => {
         hmmmm()
@@ -18,20 +19,19 @@ const MonstersX = () => {
           .catch((err) => console.error(err))
       }
 
-      const onSearchChange  = () => {
-        // seachField
-      }
 
-      const filteredMonsters = monsters.filter(monster => (
-        monster.name.toLowerCase().includes(searchField.toLowerCase)
-      ))
+      const filteredMonsters = monsters.filter(monster => {
+        monster.name.includes(search)
+      })
 
     return (
-        <div>
-            <SearchBox filteredMonsters={filteredMonsters} onSearchChange={onSearchChange} />
-            <CardList monsters={monsters} name="LordGearld" />
+        <div className="my-5">
+            <h1>MonstersX</h1>
+            <SearchBox search={search} filteredMonsters={filteredMonsters}  setSearchField={setSearchField} /> 
+            <CardList monsters={monsters} />
         </div>
     )
 }
+// filteredMonsters={filteredMonsters} 
 
 export default MonstersX

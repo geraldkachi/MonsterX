@@ -1,20 +1,21 @@
 import React from "react";
 import "../cardlist/cardlist.css"
+import CardComponent from "../card/CardComponent"
 
-const CardList = ({ children, monsters }) => {
+const CardList = ({monsters }) => {
 
   const cardarray = monsters.length ? (
     monsters.map((monster) => (
       <div key={monster.id}>
-        <span>{monster.name}</span>
+        <CardComponent monster={monster} />
       </div>
     ))
   ) : (
-    <div>No Cards</div>
-  );
+    <div style={{fontFamily:"Bigelow Rules", fontSize:50}} className="text-white pl-5">No Cards</div>
+  )
 
   return (
-    <div name="Lord Kachi" className="text-center">
+    <div className="text-center">
       <div className="card-list">{cardarray}</div>
     </div>
   );

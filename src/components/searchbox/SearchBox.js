@@ -1,14 +1,20 @@
-import React from 'react'
+import React from "react";
+import "../searchbox/searchbox.css";
 
-const SearchBox = ({onSearchChange, filteredMonsters}) => {
-    return (
-        <input 
-        className=""
-        type="search" 
-        placeholder="search monsters" 
-        onChange={onSearchChange}
-        />
-    )
-}
+const SearchBox = ({ setSearchField, search }) => {
+  
+  const onSearchChange = (e) => setSearchField(e.target.value)
 
-export default SearchBox
+  return (
+    <input
+      className="search"
+      type="search"
+      name="search"
+      value={search}
+      placeholder="search monsters"
+      onChange={onSearchChange}
+    />
+  );
+};
+
+export default SearchBox;
