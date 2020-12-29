@@ -2,7 +2,7 @@ import React from "react";
 import "../cardlist/cardlist.css"
 import CardComponent from "../card/CardComponent"
 
-const CardList = ({monsters }) => {
+const CardList = ({monsters}) => {
 
   const cardarray = monsters.length ? (
     monsters.map((monster) => (

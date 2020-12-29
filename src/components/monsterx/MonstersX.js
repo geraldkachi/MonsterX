@@ -21,14 +21,14 @@ const MonstersX = () => {
 
 
       const filteredMonsters = monsters.filter(monster => {
-        monster.name.includes(search)
+        return monster.name.toLowerCase().includes(search.toLowerCase())
       })
 
     return (
         <div className="my-5">
             <h1>MonstersX</h1>
-            <SearchBox search={search} filteredMonsters={filteredMonsters}  setSearchField={setSearchField} /> 
-            <CardList monsters={monsters} />
+            <SearchBox search={search} setSearchField={setSearchField} /> 
+            <CardList monsters={filteredMonsters} />
         </div>
     )
 }
